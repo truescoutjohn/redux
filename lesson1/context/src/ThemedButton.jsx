@@ -8,7 +8,6 @@ class ThemedButton extends React.Component {
         {...this.props}
         className="btn"
         style={{ color: this.context.fontColor, background: this.context.background }}
-        onClick={this.props.onClick}
       />
     );
   }
