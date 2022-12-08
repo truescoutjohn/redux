@@ -4,8 +4,8 @@ const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 const RESET = 'RESET';
 
-export const increment = () => ({ type: INCREMENT, value: 1 });
-export const decrement = () => ({ type: DECREMENT, value: -1 });
+export const increment = () => ({ type: INCREMENT });
+export const decrement = () => ({ type: DECREMENT });
 export const reset = () => ({ type: RESET });
 
 const initialState = {
@@ -14,8 +14,9 @@ const initialState = {
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case DECREMENT:
+      return { ...state, history: [...state.history, -1] };
     case INCREMENT:
-      return { ...state, history: [...state.history, action.value] };
+      return { ...state, history: [...state.history, 1] };
     case RESET:
       return { ...state, history: [] };
     default:
