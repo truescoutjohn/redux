@@ -6,7 +6,7 @@ export const userReducer = (state = null, action) => {
       return { ...state, ...action.payload.user };
     }
     case REMOVE_USER: {
-      return {};
+      return null;
     }
     default: {
       return state;
