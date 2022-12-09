@@ -16,7 +16,7 @@ const Users = ({ users, addUser, deleteUser }) => {
       </button>
       <ul className="users__list">
         {users.userList.map(user => (
-          <li className="users__list-item">
+          <li key={user.id} className="users__list-item">
             <span>{user.name}</span>
             <button className="users__delete-btn" onClick={() => deleteUser(user.id)}>
               +
