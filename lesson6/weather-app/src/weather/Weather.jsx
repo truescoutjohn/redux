@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getCitiesAsync } from './weather.actions.js';
+import { getWeatherData } from './weather.actions.js';
 
-const Weather = ({ cities, getCitiesAsync }) => {
+const Weather = ({ cities, getWeatherData }) => {
   useEffect(() => {
-    getCitiesAsync();
+    getWeatherData();
   }, []);
   return (
     <main className="weather">
@@ -26,7 +26,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = {
-  getCitiesAsync,
+  getWeatherData,
 };
 
 export default connect(mapState, mapDispatch)(Weather);
