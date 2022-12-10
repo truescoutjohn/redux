@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { counterReducer } from './counter.reducers.js';
 
+const devtoolEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || function () {};
+
 const logger = state => next => action => {
   console.group(action.type);
   console.info('dispatching', action);
@@ -10,7 +12,4 @@ const logger = state => next => action => {
   return result;
 };
 
-export default createStore(
-  counterReducer,
-  compose(applyMiddleware(logger), window.__REDUX_DEVTOOLS_EXTENSION__()),
-);
+export default createStore(counterReducer, compose(applyMiddleware(logger), devtoolEnhancer()));
