@@ -7,7 +7,9 @@ import { changeFilter } from './users.actions.js';
 
 const UsersList = ({ users, filterText, change }) => {
   const filteredUsers =
-    filterText !== '' ? users.filter(user => user.name.includes(filterText)) : users;
+    filterText !== ''
+      ? users.filter(user => user.name.toLowerCase().includes(filterText.toLowerCase()))
+      : users;
   return (
     <div>
       <Filter filterText={filterText} onChange={change} count={filteredUsers.length} />
